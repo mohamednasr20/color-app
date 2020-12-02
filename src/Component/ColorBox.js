@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { CopyToClipboard } from "react-copy-to-clipboard";
-import "../Css/ColorBox.css";
+import "../style/ColorBox.css";
 
 const ColorBox = ({ name, background }) => {
   const [copied, setCopied] = useState(false);
