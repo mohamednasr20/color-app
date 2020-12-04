@@ -44,9 +44,10 @@ const styles = {
   },
 };
 
-const MiniPalette = ({ classes, paletteName, emoji, colors }) => {
+const MiniPalette = ({ classes, paletteName, emoji, colors, handleClick }) => {
   const miniColorBoxes = colors.map((color) => (
     <div
+      onClick={handleClick}
       className={classes.miniColor}
       style={{ background: color.color }}
       key={color.name}

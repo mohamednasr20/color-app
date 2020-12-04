@@ -32,7 +32,10 @@ const styles = {
     gridGap: "5%",
   },
 };
-const PaletteList = ({ palettes, classes }) => {
+const PaletteList = ({ palettes, classes, history }) => {
+  const gotToPalette = (id) => {
+    history.push(`/palette/${id}`);
+  };
   return (
     <div className={classes.root}>
       <div className={classes.container}>
@@ -41,7 +44,11 @@ const PaletteList = ({ palettes, classes }) => {
         </nav>
         <div className={classes.palettes}>
           {palettes.map((palette) => (
-            <MiniPalette {...palette} />
+            <MiniPalette
+              {...palette}
+              handleClick={() => gotToPalette(palette.id)}
+              key={palette.id}
+            />
           ))}
         </div>
       </div>
