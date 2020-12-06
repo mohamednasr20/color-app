@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ColorBox from "./ColorBox";
+import PaletteFooter from "./PaletteFooter";
 import Navbar from "./Navbar";
 import "../style/Palette.css";
 
@@ -30,12 +31,10 @@ const Palette = ({ palette }) => {
         level={level}
         changeLevel={changeLevel}
         changeFormat={handleChange}
+        showingAllColor
       />
       <div className="Palette-colors">{colorBoxes}</div>
-      <footer className="Palette-footer">
-        {palette.paletteName}
-        <span className="emoji">{palette.emoji}</span>
-      </footer>
+      <PaletteFooter paletteName={palette.paletteName} emoji={palette.emoji} />
     </div>
   );
 };

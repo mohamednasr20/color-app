@@ -9,7 +9,7 @@ import IconButton from "@material-ui/core/IconButton";
 import "rc-slider/assets/index.css";
 import "../style/Navbar.css";
 
-const Navbar = ({ level, changeLevel, changeFormat }) => {
+const Navbar = ({ level, changeLevel, changeFormat, showingAllColor }) => {
   const [format, setFormat] = useState("hex");
   const [open, setOpen] = useState(false);
 
@@ -31,18 +31,21 @@ const Navbar = ({ level, changeLevel, changeFormat }) => {
       <div className="logo">
         <Link to="/">ColorPicker</Link>
       </div>
-      <div className="slider-container">
-        <span>Level: {level}</span>
-        <div className="slider">
-          <Slider
-            defaultValue={level}
-            min={100}
-            max={900}
-            step={100}
-            onAfterChange={changeLevel}
-          />
+      {showingAllColor && (
+        <div className="slider-container">
+          <span>Level: {level}</span>
+          <div className="slider">
+            <Slider
+              defaultValue={level}
+              min={100}
+              max={900}
+              step={100}
+              onAfterChange={changeLevel}
+            />
+          </div>
         </div>
-      </div>
+      )}
+
       <div className="select-container">
         <Select value={format} onChange={handleFormatChange}>
           <MenuItem value="hex">HEX -#ffffff</MenuItem>
