@@ -27,7 +27,7 @@ const SingleColorPalette = ({ palette, colorId }) => {
       key={shade.name}
       background={shade[format]}
       name={shade.name}
-      showLink={false}
+      showingSinglePalette={false}
     />
   ));
 
