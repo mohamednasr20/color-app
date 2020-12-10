@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import PaletteFooter from "./PaletteFooter";
 import ColorBox from "./ColorBox";
+import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
+import styles from "../styles/PaletteStyles";
 
-const SingleColorPalette = ({ palette, colorId }) => {
+const SingleColorPalette = ({ palette, colorId, classes }) => {
   const [format, setFormat] = useState("hex");
   const gatherShades = (palette, colorToFilterBY) => {
     let shades = [];
@@ -32,14 +34,12 @@ const SingleColorPalette = ({ palette, colorId }) => {
   ));
 
   return (
-    <div className="SingleColorPlaltte Palette">
+    <div className={classes.Palette}>
       <Navbar changeFormat={handleChange} showingAllColor={false} />
-      <div className="Palette-colors">
+      <div className={classes.PaletteColors}>
         {ColorBoxes}
-        <div className="ColorBox go-back">
-          <Link to={`/palette/${palette.id}`} className="back-button">
-            GO Back
-          </Link>
+        <div className={classes.goBack}>
+          <Link to={`/palette/${palette.id}`}>GO Back</Link>
         </div>
       </div>
       <PaletteFooter paletteName={palette.paletteName} emoji={palette.emoji} />
@@ -47,4 +47,4 @@ const SingleColorPalette = ({ palette, colorId }) => {
   );
 };
 
-export default SingleColorPalette;
+export default withStyles(styles)(SingleColorPalette);
