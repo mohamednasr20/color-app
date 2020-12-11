@@ -7,8 +7,8 @@ import Snackbar from "@material-ui/core/Snackbar";
 import CloseIcon from "@material-ui/icons/Close";
 import IconButton from "@material-ui/core/IconButton";
 import "rc-slider/assets/index.css";
-import { withStyles } from "@material-ui/core/styles";
 import styles from "../styles/NavbarStyles";
+import { withStyles } from "@material-ui/core/styles";
 
 const Navbar = ({
   level,

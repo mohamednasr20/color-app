@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import PaletteFooter from "./PaletteFooter";
 import ColorBox from "./ColorBox";
+import styles from "../styles/PaletteStyles";
 import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-import styles from "../styles/PaletteStyles";
 
 const SingleColorPalette = ({ palette, colorId, classes }) => {
   const [format, setFormat] = useState("hex");
