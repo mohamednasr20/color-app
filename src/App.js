@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import PaletteList from "./Component/PaletteList";
 import Palette from "./Component/Palette";
 import SingleColorPalette from "./Component/SingleColorPalette";
@@ -8,19 +8,35 @@ import SeedColors from "./Component/SeedColors";
 import { generatePalette } from "./colorHelpers";
 
 const App = () => {
+  const [palettes, setPalettes] = useState(SeedColors);
+
   const findPalette = (id) => {
-    return SeedColors.find((palette) => {
+    return palettes.find((palette) => {
       return palette.id === id;
     });
   };
+
+  const savePalette = (newPalette) => {
+    setPalettes([...palettes, newPalette]);
+  };
   return (
     <Switch>
-      <Route exact path="/palette/new" render={() => <NewPaletteForm />} />
+      <Route
+        exact
+        path="/palette/new"
+        render={(routeProps) => (
+          <NewPaletteForm
+            savePalette={savePalette}
+            palettes={palettes}
+            {...routeProps}
+          />
+        )}
+      />
       <Route
         exact
         path="/"
         render={(routeProps) => (
-          <PaletteList palettes={SeedColors} {...routeProps} />
+          <PaletteList palettes={palettes} {...routeProps} />
         )}
       />
       <Route
