@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/color-app/static/css/main.f62deab2.chunk.css",
+    "main.js": "/color-app/static/js/main.f855ff18.chunk.js",
+    "main.js.map": "/color-app/static/js/main.f855ff18.chunk.js.map",
+    "runtime-main.js": "/color-app/static/js/runtime-main.8695deb1.js",
+    "runtime-main.js.map": "/color-app/static/js/runtime-main.8695deb1.js.map",
+    "static/css/2.255bfe08.chunk.css": "/color-app/static/css/2.255bfe08.chunk.css",
+    "static/js/2.b056dad9.chunk.js": "/color-app/static/js/2.b056dad9.chunk.js",
+    "static/js/2.b056dad9.chunk.js.map": "/color-app/static/js/2.b056dad9.chunk.js.map",
+    "index.html": "/color-app/index.html",
+    "static/css/2.255bfe08.chunk.css.map": "/color-app/static/css/2.255bfe08.chunk.css.map",
+    "static/css/main.f62deab2.chunk.css.map": "/color-app/static/css/main.f62deab2.chunk.css.map",
+    "static/js/2.b056dad9.chunk.js.LICENSE.txt": "/color-app/static/js/2.b056dad9.chunk.js.LICENSE.txt",
+    "static/media/bg.664a7d31.svg": "/color-app/static/media/bg.664a7d31.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8695deb1.js",
+    "static/css/2.255bfe08.chunk.css",
+    "static/js/2.b056dad9.chunk.js",
+    "static/css/main.f62deab2.chunk.css",
+    "static/js/main.f855ff18.chunk.js"
+  ]
+}
