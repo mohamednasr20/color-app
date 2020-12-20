@@ -12,10 +12,11 @@ import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
 import Button from "@material-ui/core/Button";
 import arrayMove from "array-move";
 import styles from "../styles/NewPaletteFormStyles";
+import SeedColors from "../Component/SeedColors";
 
 const NewPaletteForm = ({ palettes, savePalette, classes, history }) => {
   const [open, setOpen] = useState(true);
-  const [colors, setColors] = useState(palettes[0].colors);
+  const [colors, setColors] = useState(SeedColors[0].colors);
   const isPaletteFull = colors.length >= 20;
 
   const handleDrawerOpen = () => {
@@ -48,8 +49,16 @@ const NewPaletteForm = ({ palettes, savePalette, classes, history }) => {
 
   const addRandomColor = () => {
     const allColors = palettes.map((palette) => palette.colors).flat();
-    let rand = Math.floor(Math.random() * allColors.length);
-    const randColor = allColors[rand];
+    let randColor;
+    let rand;
+    let isDuplicated = true;
+
+    while (isDuplicated) {
+      rand = Math.floor(Math.random() * allColors.length);
+      randColor = allColors[rand];
+      isDuplicated = colors.some((color) => color.name === randColor.name);
+    }
+
     setColors([...colors, randColor]);
   };
 

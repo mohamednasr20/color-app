@@ -1,7 +1,7 @@
 import React from "react";
-import styles from "../styles/MiniPaletteStyles";
 import { withStyles } from "@material-ui/core/styles";
 import DeleteIcon from "@material-ui/icons/Delete";
+import styles from "../styles/MiniPaletteStyles";
 
 const MiniPalette = ({
   classes,
@@ -9,7 +9,6 @@ const MiniPalette = ({
   emoji,
   colors,
   handleClick,
-  handleDelete,
   openDialog,
   id,
 }) => {

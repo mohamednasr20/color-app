@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
+import { Switch, Route } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { generatePalette } from "./colorHelpers";
 import PaletteList from "./Component/PaletteList";
 import Palette from "./Component/Palette";
 import SingleColorPalette from "./Component/SingleColorPalette";
 import NewPaletteForm from "./Component/NewPaletteForm";
-import { Switch, Route } from "react-router-dom";
 import SeedColors from "./Component/SeedColors";
-import { generatePalette } from "./colorHelpers";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
-import "./App.css";
+import Page from "./Component/Page";
 
 const App = () => {
   const savedPalettes = JSON.parse(window.localStorage.getItem("palettes"));
@@ -42,13 +42,13 @@ const App = () => {
                 exact
                 path="/palette/new"
                 render={(routeProps) => (
-                  <div className="page">
+                  <Page>
                     <NewPaletteForm
                       savePalette={savePalette}
                       palettes={palettes}
                       {...routeProps}
                     />
-                  </div>
+                  </Page>
                 )}
               />
 
@@ -56,13 +56,13 @@ const App = () => {
                 exact
                 path="/"
                 render={(routeProps) => (
-                  <div className="page">
+                  <Page>
                     <PaletteList
                       palettes={palettes}
                       deletePalette={deletePalette}
                       {...routeProps}
                     />
-                  </div>
+                  </Page>
                 )}
               />
 
@@ -70,13 +70,13 @@ const App = () => {
                 exact
                 path="/palette/:id"
                 render={(routeProps) => (
-                  <div className="page">
+                  <Page>
                     <Palette
                       palette={generatePalette(
                         findPalette(routeProps.match.params.id)
                       )}
                     />
-                  </div>
+                  </Page>
                 )}
               />
 
@@ -84,14 +84,25 @@ const App = () => {
                 exact
                 path="/palette/:paletteId/:colorId"
                 render={(routeProps) => (
-                  <div className="page">
+                  <Page>
                     <SingleColorPalette
                       colorId={routeProps.match.params.colorId}
                       palette={generatePalette(
                         findPalette(routeProps.match.params.paletteId)
                       )}
                     />
-                  </div>
+                  </Page>
+                )}
+              />
+              <Route
+                render={(routeProps) => (
+                  <Page>
+                    <PaletteList
+                      palettes={palettes}
+                      deletePalette={deletePalette}
+                      {...routeProps}
+                    />
+                  </Page>
                 )}
               />
             </Switch>
